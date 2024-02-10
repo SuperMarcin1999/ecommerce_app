@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
 
 class SearchComponent extends StatelessWidget {
@@ -6,9 +7,9 @@ class SearchComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
+      decoration: const BoxDecoration(
+          color: AppColors.backgroundTextFieldColor,
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -16,7 +17,7 @@ class SearchComponent extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 15),
               child: TextField(
-                style: TextStyle(color: Color.fromARGB(255, 73, 41, 41)),
+                style: TextStyle(color: AppColors.liteFontColor),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "Search",

@@ -2,6 +2,7 @@
 
 import 'package:ecommerce_app/components/bottom_nav_bar.dart';
 import 'package:ecommerce_app/components/search_compenent.dart';
+import 'package:ecommerce_app/helpers/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../components/about_app_drawer.dart';
@@ -12,10 +13,10 @@ class ShopSceletonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor: AppColors.backgroundAppColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.grey[400],
+        backgroundColor: AppColors.backgroundAppColor,
         foregroundColor: Colors.black,
       ),
       drawer: AboutAppDrawer(),
@@ -25,6 +26,45 @@ class ShopSceletonPage extends StatelessWidget {
           children: [
             // Search
             SearchComponent(),
+
+            // Text: everyone files....
+            Padding(
+              padding: const EdgeInsets.only(bottom: 40, top: 40),
+              child: Text(
+                "everyone files.. some fly longer than others",
+                style: TextStyle(color: AppColors.liteFontColor),
+              ),
+            ),
+
+            // Row Hots Picks, Icon, See all
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      "Hot Picks",
+                      style: TextStyle(
+                          color: AppColors.mainAppFontColor,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1),
+                    ),
+                    SizedBox(width: 5),
+                    Icon(
+                      Icons.fireplace_rounded,
+                      color: Colors.red,
+                    ),
+                  ],
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(
+                    color: AppColors.liteFontColor,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
