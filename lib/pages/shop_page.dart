@@ -1,14 +1,23 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:ecommerce_app/components/bottom_nav_bar.dart';
+import 'package:ecommerce_app/components/card_component.dart';
 import 'package:ecommerce_app/components/search_compenent.dart';
 import 'package:ecommerce_app/helpers/constants.dart';
+import 'package:ecommerce_app/services/product_service.dart';
 import 'package:flutter/material.dart';
 
 import '../components/about_app_drawer.dart';
 
-class ShopSceletonPage extends StatelessWidget {
+class ShopSceletonPage extends StatefulWidget {
   const ShopSceletonPage({super.key});
+
+  @override
+  State<ShopSceletonPage> createState() => _ShopSceletonPageState();
+}
+
+class _ShopSceletonPageState extends State<ShopSceletonPage> {
+  var products = ProductService().getProducts();
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +73,22 @@ class ShopSceletonPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: SizedBox(
+                height: 350,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    return CardComponent(
+                      product: products[index],
+                    );
+                  },
+                ),
+              ),
             ),
           ],
         ),
